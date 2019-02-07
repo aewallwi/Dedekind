@@ -50,10 +50,10 @@ def dedekind(freqs,ydata,flags,filter_factor = 1e-6,patch_c = [0.], patch_w = [1
                 filter_mat_inv[:,flags]=0.
                 filter_mat_inv[flags,:]=0.
 
-            filter_mat = np.linalg.pinv(cmat)*filter_factor
+            filter_mat = np.linalg.pinv(filter_mat_inv)*filter_factor
             WMAT_CACHE[wkey]=filter_mat
-        else:
-            wmat = WMAT_CACHE[wkey]
+            
+        wmat = WMAT_CACHE[wkey]
     output = ydata
     output = np.dot(wmat,output)
     output = fft.fft(output * taper)
