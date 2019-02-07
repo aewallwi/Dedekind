@@ -2,7 +2,7 @@ import numpy as np
 import scipy.signal as signal
 
 WMAT_CACHE = {}
-def linear_filter(freqs,ydata,flags,filter_factor = 1e-6,patch_c = [0.], patch_w = [100e-9],weights = "WTL",
+def dedekind(freqs,ydata,flags,filter_factor = 1e-6,patch_c = [0.], patch_w = [100e-9],weights = "WTL",
                   renormalize=False,zero_flags=True,output_domain='delay',taper='boxcar'):
     '''
     a linear delay filter that suppresses modes within rectangular windows in delay space listed in list "patch_c"
